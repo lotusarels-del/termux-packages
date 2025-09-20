@@ -267,7 +267,7 @@ jobs:
     - name: ⬆️ Upload static library tar.gz
       uses: actions/upload-artifact@v4
       with:
-        name: static-${{ matrix.target_arch }}
+        name: static-checksum-${{ matrix.target_arch }}-${{ github.sha }}.txt
         path: output/*.tar.gz
         
     - name: Generate build artifacts
