@@ -264,7 +264,12 @@ jobs:
             ./scripts/run-docker.sh ./build-package.sh -I -C -a "${{ matrix.target_arch }}" "${packages[@]}"
           fi
         fi
-
+    - name: ⬆️ Upload static library tar.gz
+      uses: actions/upload-artifact@v4
+      with:
+        name: static-aarch64-3.1.2
+        path: output/*.tar.gz
+        
     - name: Generate build artifacts
       if: always()
       run: |
