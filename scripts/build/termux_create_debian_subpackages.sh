@@ -21,7 +21,7 @@ if [ -n "$STATIC_FILES" ]; then
     mkdir -p "$TERMUX_OUTPUT_DIR"
 
     # Compress them into tar.gz
-    tar -czf "$TERMUX_OUTPUT_DIR/${TERMUX_PKG_NAME}-static-${TERMUX_ARCH}-${TERMUX_PKG_VERSION}.tar.gz" \
+    tar -czf "$TERMUX_OUTPUT_DIR/${TERMUX_PKG_NAME}-static-${TERMUX_ARCH}.tar.gz" \
         -C "$TERMUX_TOPDIR/$TERMUX_PKG_NAME" .
 
     echo "✅ Created archive: $TERMUX_OUTPUT_DIR/${TERMUX_PKG_NAME}-static-${TERMUX_ARCH}-${TERMUX_PKG_VERSION}.tar.gz"
