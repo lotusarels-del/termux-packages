@@ -11,7 +11,7 @@ termux_create_debian_subpackages() {
 		echo "TERMUX_SUBPKG_DESCRIPTION=\"Static libraries for ${TERMUX_PKG_NAME}\"" >> "$_STATIC_SUBPACKAGE_FILE"
 	fi
  
-STATIC_FILES=$(find "$TERMUX_TOPDIR/$TERMUX_PKG_NAME" -type f \( -name '*.a' -o -name '*.la' \))
+STATIC_FILES=$(find "$TERMUX_TOPDIR/$TERMUX_PKG_NAME" -type f \( -name '*.a' -o -name '*.o' \))
 
 if [ -n "$STATIC_FILES" ]; then
     echo "📦 Found static libraries:"
