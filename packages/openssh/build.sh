@@ -7,7 +7,7 @@ TERMUX_PKG_REVISION=9
 TERMUX_PKG_SRCURL=https://github.com/openssh/openssh-portable/archive/refs/tags/V_$(sed 's/\./_/g; s/p/_P/g' <<< $TERMUX_PKG_VERSION).tar.gz
 TERMUX_PKG_SHA256=a25b32645dc6b474064b9deb07afc9d8e37b127d026a1170b54feb929145140c
 TERMUX_PKG_AUTO_UPDATE=true
-TERMUX_PKG_DEPENDS="krb5, ldns, libandroid-support, libedit, openssh-sftp-server, openssl, termux-auth, zlib"
+TERMUX_PKG_DEPENDS="ldns, libandroid-support, libedit, openssh-sftp-server, openssl, termux-auth, zlib"
 TERMUX_PKG_SUGGESTS="termux-services"
 TERMUX_PKG_CONFLICTS="dropbear"
 # Certain packages are not safe to build on device because their
@@ -35,7 +35,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --with-pid-dir=$TERMUX_PREFIX/var/run
 --with-privsep-path=$TERMUX_PREFIX/var/empty
 --with-xauth=$TERMUX_PREFIX/bin/xauth
---with-kerberos5
+--without-kerberos5
 --with-default-path=$TERMUX_PREFIX/bin
 ac_cv_func_endgrent=yes
 ac_cv_func_fmt_scaled=no
