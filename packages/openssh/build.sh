@@ -65,7 +65,7 @@ termux_pkg_auto_update() {
 termux_step_pre_configure() {
 	autoreconf
 
-	CPPFLAGS+=" -DHAVE_ATTRIBUTE__SENTINEL__=1 -DBROKEN_SETRESGID"
+	CPPFLAGS+=" -fPIC -DHAVE_ATTRIBUTE__SENTINEL__=1 -DBROKEN_SETRESGID"
 	LD=$CC # Needed to link the binaries
 }
 
