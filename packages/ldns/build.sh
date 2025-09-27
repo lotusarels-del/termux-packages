@@ -10,7 +10,7 @@ TERMUX_PKG_DEPENDS="openssl, resolv-conf"
 TERMUX_PKG_BREAKS="ldns-dev"
 TERMUX_PKG_REPLACES="ldns-dev"
 TERMUX_PKG_BUILD_IN_SRC=true
-
+export CFLAGS="-fPIC -O2"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 
 --with-ssl=$TERMUX_PREFIX
@@ -18,7 +18,6 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --with-drill
 --disable-shared
 --enable-static
-CFLAGS="-fPIC -O2"
 "
 
 termux_step_pre_configure() {
