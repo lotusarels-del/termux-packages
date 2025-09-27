@@ -12,9 +12,13 @@ TERMUX_PKG_REPLACES="ldns-dev"
 TERMUX_PKG_BUILD_IN_SRC=true
 
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
+
 --with-ssl=$TERMUX_PREFIX
 --disable-gost
 --with-drill
+--disable-shared
+--enable-static
+CFLAGS="-fPIC -O2"
 "
 
 termux_step_pre_configure() {
