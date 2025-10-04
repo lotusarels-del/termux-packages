@@ -29,6 +29,8 @@ php_cv_lib_gd_gdImageCreateFromWebp=yes
 php_cv_lib_gd_gdImageCreateFromJpeg=yes
 php_cv_lib_gd_gdImageCreateFromBmp=yes
 php_cv_lib_gd_gdImageCreateFromTga=yes
+--enable-static
+--disable-shared
 --enable-bcmath
 --enable-calendar
 --enable-exif
