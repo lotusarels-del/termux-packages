@@ -12,7 +12,7 @@ TERMUX_PKG_AUTO_UPDATE=false
 # Build native php for phar to build (see pear-Makefile.frag.patch):
 TERMUX_PKG_HOSTBUILD=true
 # Build the native php without xml support as we only need phar:
-TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-libxml --disable-dom --disable-simplexml --disable-xml --disable-xmlreader --disable-xmlwriter --without-pear --disable-sqlite3 --without-libxml --without-sqlite3 --without-pdo-sqlite"
+TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-libxml --disable-dom --disable-simplexml --disable-xml --disable-xmlreader --disable-xmlwriter --without-pear --disable-sqlite3 --without-libxml --without-sqlite3 --without-pdo-sqlite --disable-shared"
 TERMUX_PKG_DEPENDS="libandroid-glob, libandroid-support, libbz2, libc++, libcurl, libffi, libgmp, libiconv, libicu, libresolv-wrapper, libsqlite, libxml2, libxslt, libzip, oniguruma, openssl, pcre2, readline, tidy, zlib"
 TERMUX_PKG_BUILD_DEPENDS="postgresql"
 TERMUX_PKG_CONFLICTS="php-mysql, php-dev"
@@ -30,7 +30,7 @@ php_cv_lib_gd_gdImageCreateFromJpeg=yes
 php_cv_lib_gd_gdImageCreateFromBmp=yes
 php_cv_lib_gd_gdImageCreateFromTga=yes
 --enable-static
---disable-shared
+--enable-cli
 --enable-bcmath
 --enable-calendar
 --enable-exif
