@@ -6,7 +6,7 @@ TERMUX_PKG_VERSION="1.1.43"
 TERMUX_PKG_REVISION=2
 TERMUX_PKG_SRCURL="https://gitlab.gnome.org/GNOME/libxslt/-/archive/v${TERMUX_PKG_VERSION}/libxslt-v${TERMUX_PKG_VERSION}.tar.gz"
 TERMUX_PKG_SHA256=47747c86ce5acd2b5cdc276e37a755c8fe93bcfcd0302f76303d93b7cca66867
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shared --enable-static -DLIBXSLT_WITH_PYTHON=no"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shared -DLIBXSLT_WITH_PYTHON=no"
 TERMUX_PKG_DEPENDS="libgcrypt, libgpg-error, libxml2, libandroid-glob"
 TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_BREAKS="libxslt-dev"
