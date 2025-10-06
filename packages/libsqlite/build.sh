@@ -13,6 +13,8 @@ TERMUX_PKG_BUILD_DEPENDS="tcl"
 TERMUX_PKG_BREAKS="libsqlite-dev"
 TERMUX_PKG_REPLACES="libsqlite-dev"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
+--enable-static
+--disable-shared
 --enable-fts3
 --enable-fts4
 --enable-fts5
