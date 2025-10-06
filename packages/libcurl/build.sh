@@ -28,6 +28,8 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --with-openssl-quic
 --with-nghttp3
 --disable-ares
+--disable-shared
+--enable-static
 "
 
 # https://github.com/termux/termux-packages/issues/15889
