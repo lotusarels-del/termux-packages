@@ -8,7 +8,6 @@ TERMUX_PKG_SHA256=7ce458a0affeb83f0b55f1f4f9e0e55735dbfc1a9de124ee86fb4a66b59720
 TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_SETUP_PYTHON=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
---disable-shared
 --enable-static
 --with-http
 --with-legacy
