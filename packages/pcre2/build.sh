@@ -14,6 +14,7 @@ bin/pcre2test
 share/man/man1/pcre2test.1
 "
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
+--enable-static
 --enable-jit
 --enable-pcre2-16
 --enable-pcre2-32
