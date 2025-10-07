@@ -31,6 +31,7 @@ TERMUX_PKG_AUTO_UPDATE=true
 
 # providing manual paths to libs because it picks up host libs on some systems
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
+--enable-static
 --with-apr=$TERMUX_PREFIX
 --with-apr-util=$TERMUX_PREFIX
 --with-pcre=$TERMUX_PREFIX
