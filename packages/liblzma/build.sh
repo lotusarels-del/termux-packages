@@ -13,7 +13,7 @@ TERMUX_PKG_REPLACES="liblzma-dev"
 TERMUX_PKG_ESSENTIAL=true
 # seccomp prevents SYS_landlock_create_ruleset
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
---enable-sandbox=no
+--enable-static --enable-sandbox=no
 "
 
 termux_step_post_massage() {
