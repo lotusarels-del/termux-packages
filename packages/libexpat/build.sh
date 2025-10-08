@@ -9,7 +9,7 @@ TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_UPDATE_VERSION_REGEXP="\d+.\d+.\d+"
 TERMUX_PKG_BREAKS="libexpat-dev"
 TERMUX_PKG_REPLACES="libexpat-dev"
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--without-xmlwf --without-docbook"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-static --without-xmlwf --without-docbook"
 
 termux_step_post_get_source() {
 	# Do not forget to bump revision of reverse dependencies and rebuild them
