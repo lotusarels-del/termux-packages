@@ -260,8 +260,10 @@ jobs:
             # https://github.com/actions/runner/issues/1126
             unset NDK ANDROID_HOME
             ./build-package.sh -I -C -a "${{ matrix.target_arch }}" "${packages[@]}"
+            echo "PACKAGE_NAME_=${packages[@]}" >> $GITHUB_ENV
           else
             ./scripts/run-docker.sh ./build-package.sh -I -C -a "${{ matrix.target_arch }}" "${packages[@]}"
+            echo "PACKAGE_NAME_=${packages[@]}" >> $GITHUB_ENV
           fi
         fi
 
@@ -305,7 +307,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v5
       with:
-        name: debs-${{ matrix.target_arch }}-${{ github.sha }}
+        name: ${{ env.PACKAGE_NAME_ }}-debs-${{ matrix.target_arch }}-${{ github.sha }}
         path: ./artifacts
 
   test-buildorder-random:
