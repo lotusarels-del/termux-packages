@@ -10,6 +10,7 @@ on:
     - 'scripts/setup-android-sdk.sh'
     - 'scripts/setup-ubuntu.sh'
     - 'scripts/setup-cgct.sh'
+  pull_request:
   schedule:
     - cron:  '0 2 * * 0'
   workflow_dispatch:
