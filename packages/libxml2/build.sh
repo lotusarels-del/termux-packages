@@ -18,7 +18,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 "
 # Python bindings
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+="
-	-Dpython=disable
+	-Dpython=disabled
 "
 # `xmllint` history support
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+="
