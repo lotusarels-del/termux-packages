@@ -15,6 +15,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 	-Dhttp=enabled
 	-Dicu=enabled
 	-Dlegacy=enabled
+	-Ddefault_library=both
 "
 # Python bindings
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+="
