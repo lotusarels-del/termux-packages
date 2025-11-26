@@ -18,7 +18,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 "
 # Python bindings
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+="
-	-Dpython=enabled
+	-Dpython=disable
 "
 # `xmllint` history support
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+="
@@ -31,7 +31,7 @@ share/doc/libxml2/xmlcatalog.html
 share/doc/libxml2/xmllint.html
 "
 TERMUX_PKG_DEPENDS="libandroid-glob, libiconv, libicu, zlib"
-TERMUX_PKG_BUILD_DEPENDS="python, readline"
+TERMUX_PKG_BUILD_DEPENDS="readline"
 TERMUX_PKG_BREAKS="libxml2-dev"
 TERMUX_PKG_REPLACES="libxml2-dev"
 
