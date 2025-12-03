@@ -4,16 +4,40 @@ termux_create_debian_subpackages() {
 	if [[ "$TERMUX_PACKAGE_LIBRARY" == 'glibc' ]]; then
 		_ADD_PREFIX="glibc/"
 	fi
-	if [[ "$TERMUX_PKG_NO_STATICSPLIT" == 'false' && -n "$(shopt -s globstar; shopt -s nullglob; echo ${_ADD_PREFIX}lib{,32}/**/*.a)" ]]; then
+
+    if [[ "$TERMUX_PKG_NO_STATICSPLIT" == 'false' && -n "$(shopt -s globstar; shopt -s nullglob; echo ${_ADD_PREFIX}lib{,32}/**/*.a)" ]]; then
 		# Add virtual -static sub package if there are include files:
 		local _STATIC_SUBPACKAGE_FILE=$TERMUX_PKG_TMPDIR/${TERMUX_PKG_NAME}-static.subpackage.sh
 		echo TERMUX_SUBPKG_INCLUDE=\"$(find ${_ADD_PREFIX}lib{,32} -name '*.a' -o -name '*.la' 2> /dev/null) $TERMUX_PKG_STATICSPLIT_EXTRA_PATTERNS\" > "$_STATIC_SUBPACKAGE_FILE"
 		echo "TERMUX_SUBPKG_DESCRIPTION=\"Static libraries for ${TERMUX_PKG_NAME}\"" >> "$_STATIC_SUBPACKAGE_FILE"
 	fi
 
+
 	# Now build all sub packages
-	rm -Rf "$TERMUX_TOPDIR/$TERMUX_PKG_NAME/subpackages"
-	for subpackage in $TERMUX_PKG_BUILDER_DIR/*.subpackage.sh $TERMUX_PKG_TMPDIR/*subpackage.sh; do
+#	rm -Rf "$TERMUX_TOPDIR/$TERMUX_PKG_NAME/subpackages"
+    # Search for static files (.a / .la)
+
+
+ 
+STATIC_FILES=$(find "$TERMUX_TOPDIR/$TERMUX_PKG_NAME" -type f \( -name '*.a' -o -name '*.la' \))
+
+if [ -n "$STATIC_FILES" ]; then
+    echo "📦 Found static libraries:"
+    echo "$STATIC_FILES"
+
+    # Make sure output dir exists
+    mkdir -p "$TERMUX_OUTPUT_DIR"
+
+    # Compress them into tar.gz
+    tar -czf "$TERMUX_OUTPUT_DIR/${TERMUX_PKG_NAME}-static-${TERMUX_ARCH}-${TERMUX_PKG_VERSION}.tar.gz" \
+        -C "$TERMUX_TOPDIR/$TERMUX_PKG_NAME" .
+
+    echo "✅ Created archive: $TERMUX_OUTPUT_DIR/${TERMUX_PKG_NAME}-static-${TERMUX_ARCH}-${TERMUX_PKG_VERSION}.tar.gz"
+else
+    echo "⚠️ No .a or .la files found under $TERMUX_TOPDIR/$TERMUX_PKG_NAME, skipping archive."
+fi
+
+for subpackage in $TERMUX_PKG_BUILDER_DIR/*.subpackage.sh $TERMUX_PKG_TMPDIR/*subpackage.sh; do
 		[[ -f "$subpackage" ]] || continue
 		local SUB_PKG_NAME
 		SUB_PKG_NAME=$(basename "$subpackage" .subpackage.sh)
