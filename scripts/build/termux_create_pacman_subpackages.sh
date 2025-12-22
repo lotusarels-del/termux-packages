@@ -12,7 +12,7 @@ termux_create_pacman_subpackages() {
 	fi
 
 	# Now build all sub packages
-	rm -Rf "$TERMUX_TOPDIR/$TERMUX_PKG_NAME/subpackages"
+#	rm -Rf "$TERMUX_TOPDIR/$TERMUX_PKG_NAME/subpackages"
 	for subpackage in $TERMUX_PKG_BUILDER_DIR/*.subpackage.sh $TERMUX_PKG_TMPDIR/*subpackage.sh; do
 		[[ -f "$subpackage" ]] || continue
 		local SUB_PKG_NAME
