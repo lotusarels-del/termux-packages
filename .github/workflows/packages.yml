@@ -1,4 +1,4 @@
-name: ${{ env.PACKAGE_NAME_ }}-Packages
+name: Packages
 
 on:
   push:
