@@ -259,10 +259,10 @@ jobs:
             # support permanently unsetting variables at time of writing.
             # https://github.com/actions/runner/issues/1126
             unset NDK ANDROID_HOME
-            ./build-package.sh -I -C -a "${{ matrix.target_arch }}" "${packages[@]}"
+            ./build-package.sh -I -C -s -f -a "${{ matrix.target_arch }}" "${packages[@]}"
             echo "PACKAGE_NAME_=${packages[@]}" >> $GITHUB_ENV
           else
-            ./scripts/run-docker.sh ./build-package.sh -I -C -a "${{ matrix.target_arch }}" "${packages[@]}"
+            ./scripts/run-docker.sh ./build-package.sh -I -C -f -s -a "${{ matrix.target_arch }}" "${packages[@]}"
             echo "PACKAGE_NAME_=${packages[@]}" >> $GITHUB_ENV
           fi
         fi
